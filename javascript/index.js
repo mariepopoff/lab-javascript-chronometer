@@ -44,6 +44,9 @@ function setStopBtn() {
 
 function setSplitBtn() {
   // ... your code goes here
+  btnRightElement.classList.remove("reset");
+  btnRightElement.classList.add("split");
+  btnRightElement.textContent = "SPLIT";
 }
 
 function setStartBtn() {
@@ -52,14 +55,28 @@ function setStartBtn() {
 
 function setResetBtn() {
   // ... your code goes here
+  btnRightElement.classList.add("reset");
+  btnRightElement.classList.remove("split");
+  btnRightElement.textContent = "RESET";
 }
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
   // ... your code goes here
-});
+  btnLeftElement.classList.toggle("start");
+  btnLeftElement.classList.toggle("stop");
+  (btnLeftElement.textContent === "START") ? 
+    btnLeftElement.textContent = "STOP" :
+    btnLeftElement.textContent = "START";
+  (btnLeftElement.classList.contains("start")) ? setResetBtn() : setSplitBtn();
+    
+}
+)
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
   // ... your code goes here
-});
+(btnLeftElement.classList.contains("start")) ? setResetBtn() : setSplitBtn();
+  
+}
+)
